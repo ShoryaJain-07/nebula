@@ -25,7 +25,7 @@ export const connectWallet = createAsyncThunk<
 
      if(typeof window != "undefined") {
           // @ts-ignore
-          const eth = window.ethereum!;
+          const eth: any = window.ethereum!;
           const wallet = await eth.request({ method, params: [
                { 'chainId': 1 }
           ] })
@@ -51,7 +51,7 @@ export const disconnectWallet = createAsyncThunk<
           try {
                if(typeof window != "undefined") {
                     // @ts-ignore
-                    const eth = window.ethereum;
+                    const eth: any = window.ethereum;
                     const result = eth.request({
                          method,
                          params: [
